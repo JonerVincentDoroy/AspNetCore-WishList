@@ -22,8 +22,7 @@ namespace WishList
 
             //configure database to point Entity Framework to the application's 
             //DbContext
-            services.AddDbContext<ApplicationDbContext>(options
-                => options.UseInMemoryDatabase("WishList"));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("WishList"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
