@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations; //to add attributes to a property
+﻿using System.Collections;
+using System.ComponentModel.DataAnnotations; //to add attributes to a property
+using System.Collections.Generic;
 
 namespace WishList.Models
 {
@@ -10,6 +12,8 @@ namespace WishList.Models
         [Required]
         [MaxLength(50)]
         public string Description { get; set; }
+        
+        public IEnumerable<Item> collections { get; set; }
 
     }
 }
