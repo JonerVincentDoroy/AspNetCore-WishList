@@ -44,7 +44,7 @@ namespace WishListTests
 
             Assert.True(file.Contains("app.UseRouting();"), "`Startup.cs`'s `Configure` method did not contain a call to `UseRouting` on `app`.");
 
-            var pattern = @"app.UseRouting\s*?[(]\s*?[)]\s*?;\s*?app.UseEndpoints\s*?[(]\s*?endpoints\s*?=>\s*?{\s*?endpoints.MapDefaultControllerRoute\s*?[(]\s*?[)]\s*?;\s*?}\s*?[)]\s*?;";
+            var pattern = @"app.UseEndpoints\s*?[(]\s*?endpoints\s*?=>\s*?{\s*?endpoints.MapDefaultControllerRoute\s*?[(]\s*?[)]\s*?;\s*?}\s*?[)]\s*?;";
             var rgx = new Regex(pattern);
             Assert.True(rgx.IsMatch(file), "`Startup.cs`'s `Configure` method did not contain a call to `UseEnpoints` on `app` after `UseRouting` with an argument of `endpoints => { endpoints.MapDefaultControllerRoute(); }`");
         }
