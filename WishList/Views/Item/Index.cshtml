@@ -2,13 +2,15 @@
 @model List<WishList.Models.Item>
 
 <h1>WishList</h1>
+
 <a asp-action="create">Add item</a>
 
 <ul>
+    <!-- add (asperand) symbol to indicate that it is c# coding and not html-->
     @foreach (var item in Model)
     {
-         <!-- add (asperand) symbol to indicate that it is c# coding and not html-->
-        <li> @item.Description 
+        <li>
+            @item.Description
             <a asp-action="delete" asp-route-id="@item.Id">delete</a>
         </li>
     }
