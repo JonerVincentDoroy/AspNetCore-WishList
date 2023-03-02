@@ -13,33 +13,35 @@ namespace WishList.Controllers
         {
             _context = context;
         }
+
+        //display a list of item wishlist
         public IActionResult Index()
         {
-            //display a list of item wishlist
+            
             var model = _context.Items.ToList();
             return View("Index", model);
         }
 
+        //call create view after clicking Add Item button
         [HttpGet]
         public IActionResult Create()
         {
-            //call create view after clicking Add Item button
             return View("Create");
         }
 
+        //*redirectToAction - after creating an item redirect back to index view
         [HttpPost]
         public IActionResult Create(Item item)
         {
             _context.Items.Add(item);
             _context.SaveChanges();
-
-            //after creating an item redirect back to index view
             return RedirectToAction("Index");
         }
 
+        //FirstOrDefault - check if there is an item with matching id
         public IActionResult Delete (int id) 
         {
-            //check if there is an item with matching id
+            
             var itemToRemove = _context.Items.FirstOrDefault(item => item.Id == id);
             
             _context.Items.Remove(itemToRemove);
