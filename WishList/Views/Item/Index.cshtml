@@ -1,14 +1,15 @@
-﻿@model WishList.Models.Item
+﻿<!-- define a List of Items and saved it as a model in razor page -->
+@model List<WishList.Models.Item>
 
 <h1>WishList</h1>
 <a asp-action="create">Add item</a>
+
 <ul>
-    @foreach (var item in Model.collections)
+    @foreach (var item in Model)
     {
-        <li>
-            <!-- add (asperand) symbol to indicate that it is c# coding and not html-->
-            @item.Description
-             <a asp-action="delete" asp-route-id="@item.Id">delete</a>
-         </li>
+         <!-- add (asperand) symbol to indicate that it is c# coding and not html-->
+        <li> @item.Description 
+            <a asp-action="delete" asp-route-id="@item.Id">delete</a>
+        </li>
     }
 </ul>

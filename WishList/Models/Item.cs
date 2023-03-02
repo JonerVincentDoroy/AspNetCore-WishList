@@ -12,8 +12,5 @@ namespace WishList.Models
         [Required]
         [MaxLength(50)]
         public string Description { get; set; }
-        
-        public IEnumerable<Item> collections { get; set; }
-
     }
 }
